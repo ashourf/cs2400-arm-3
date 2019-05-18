@@ -24,9 +24,9 @@ result	FILL		8
 		MOV		r4, r4, lsr #8
 		ADD		r3, r3, #1 ; for normalization
 		ADD		r4, r4, #1 ; for normalization
-		;store floating points on stack for later
-		STR       r1, [sp, #4] ; 0xa0bcff0d
-		STR       r2, [sp, #8] ;0x13c0adea
+		;store	floating points on stack for later
+		STR		r1, [sp, #4] ; 0xa0bcff0d
+		STR		r2, [sp, #8] ;0x13c0adea
 main
 		
 		
