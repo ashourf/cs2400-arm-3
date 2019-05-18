@@ -11,22 +11,27 @@
 floats	DCD		0xa0bcff0d, 0x13c0adea
 result	FILL		8
 		
+		
 		;load	floats address into memory
 		ADR		r0 , floats
 		;load	numbers
 		LDR		r1, [r0]
 		LDR		r2, [r0,#4]
 		ADR		r0, result
-
-
+		;extract	exponents
+		MOV		r3, r1, lsl #8
+		MOV		r4, r2, lsl #8
+		MOV		r3, r3, lsr #8
+		MOV		r4, r4, lsr #8
+		
 main
-
-
-
-
-
-
-
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
