@@ -14,8 +14,8 @@ result	FILL		8
 		;load	floats address into memory
 		ADR		r0 , floats
 		;load	numbers
-		LDR		r1, [r0] , #4
-		LDR		r2, [r0]
+		LDR		r1, [r0]
+		LDR		r2, [r0,#4]
 		ADR		r0, result
 
 
