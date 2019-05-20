@@ -23,8 +23,6 @@ masks	DCD		0x0000ffff , 0xffff0000 ; for 32 bit mul
 		MOV		r4, r2, lsl #8
 		MOV		r3, r3, lsr #8
 		MOV		r4, r4, lsr #8
-		ADD		r3, r3, #1 ; for normalization
-		ADD		r4, r4, #1 ; for normalization
 		;store	floating points on stack for later
 		STR		r1, [sp, #4] ; 0xa0bcff0d
 		STR		r2, [sp, #8] ;0x13c0adea
@@ -110,7 +108,10 @@ product
 		ADC		r9, r9 , r5
 		MOV		r0, r11  ; mov results to easier to track registers
 		MOV		r1, r9 ; mov results to easier to track registers
-		
+
+		;load original numbers from the stack
+		LDR   r3, [sp, #4]
+		LDR   r4, [sp, #8]
 		
 		
 		
