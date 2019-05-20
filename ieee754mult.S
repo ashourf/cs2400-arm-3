@@ -11,7 +11,7 @@
 floats	DCD		0xa0bcff0d, 0x13c0adea
 result	FILL		8
 need		DCD		0x10000 ; for 32 bit mul
-masks	DCD		0x0000ffff , 0xffff0000 ; for 32 bit mul 
+masks	DCD		0x0000ffff , 0xffff0000 ; for 32 bit mul
 		
 		;load	floats address into memory
 		ADR		r0 , floats
@@ -108,10 +108,18 @@ product
 		ADC		r9, r9 , r5
 		MOV		r0, r11  ; mov results to easier to track registers
 		MOV		r1, r9 ; mov results to easier to track registers
-
-		;load original numbers from the stack
-		LDR   r3, [sp, #4]
-		LDR   r4, [sp, #8]
+		
+		;load	original numbers from the stack
+		LDR		r3, [sp, #4]
+		LDR		r4, [sp, #8]
+		;isolate	exponents
+		MOV		r5, r3, lsr #23
+		MOV		r6, r4, lsr #23
+		;add exponents 
+		ADD      r5,r5, r6
+		;subtract bias
+		SUB    r5, r5, #127
+		
 		
 		
 		
