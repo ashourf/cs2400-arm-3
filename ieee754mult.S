@@ -113,12 +113,13 @@ product
 		LDR		r3, [sp, #4]
 		LDR		r4, [sp, #8]
 		;isolate	exponents
-		MOV		r5, r3, lsr #23
-		MOV		r6, r4, lsr #23
-		;add		exponents
-		ADD		r5,r5, r6
+		MOV		r5, r3, lsr #24
+		MOV		r6, r4, lsr #24
 		;subtract	bias
 		SUB		r5, r5, #127
+		sub		r6, r6, #127
+		;add		exponents
+		ADD		r5,r5, r6
 		
 		
 		
